@@ -122,7 +122,7 @@ merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-pas
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/trojan
 merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/hysteria
 #svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/dns2tcp package/dns2tcp
-merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
+#merge_package https://github.com/xiaorouji/openwrt-passwall-packages openwrt-passwall-packages/sing-box
 
 merge_package https://github.com/fw876/helloworld helloworld/shadow-tls
 merge_package https://github.com/fw876/helloworld helloworld/tuic-client
@@ -209,15 +209,14 @@ merge_package https://github.com/openwrt/packages packages/net/nginx-util
 # samba4
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.14.13/g' feeds/packages/net/samba4/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=e1df792818a17d8d21faf33580d32939214694c92b84fb499464210d86a7ff75/g' feeds/packages/net/samba4/Makefile
-#rm -rf feeds/packages/net/samba4
-#merge_package https://github.com/openwrt/packages packages/net/samba4
+rm -rf feeds/packages/net/samba4
+merge_package https://github.com/openwrt/packages packages/net/samba4
 
 # ffmpeg
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.1.3/g' feeds/packages/multimedia/ffmpeg/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=1b113593ff907293be7aed95acdda5e785dd73616d7d4ec90a0f6adbc5a0312e/g' feeds/packages/multimedia/ffmpeg/Makefile
-#rm -f feeds/packages/multimedia/ffmpeg/patches/030-h264-mips.patch
-#rm -rf feeds/packages/multimedia/ffmpeg
-#cp -rf $GITHUB_WORKSPACE/general/ffmpeg feeds/packages/multimedia
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.1.4/g' feeds/packages/multimedia/ffmpeg/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=54383bb890a1cd62580e9f1eaa8081203196ed53bde9e98fb6b0004423f49063/g' feeds/packages/multimedia/ffmpeg/Makefile
+rm -rf feeds/packages/multimedia/ffmpeg
+cp -rf $GITHUB_WORKSPACE/general/ffmpeg feeds/packages/multimedia
 
 # btrfs-progs
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.7/g' feeds/packages/utils/btrfs-progs/Makefile
@@ -308,9 +307,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=14fffeba19b82c8e5a9cdf6d873522a11ee4e25bbb86bbd
 cp -f $GITHUB_WORKSPACE/general/containerd/Makefile feeds/packages/utils/containerd
 
 # runc
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.11/g' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=129ad7cd470e4bdc82cdd3d5f0aa93e43674bf8ea115da2b42a27361885fe3ee/g' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4bccb38cc9cf198d52bebf2b3a90cd14e7af8c06/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.12/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=be31b07d6a54a8f234016501c300ad04b6c428c56588e7eca8c3b663308db208/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=51d5e94601ceffbbd85688df1c928ecccbfa4685/g' feeds/packages/utils/runc/Makefile
 #sed -i '12d' feeds/packages/utils/runc/Makefile
 
 # bsdtar
@@ -350,8 +349,8 @@ sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=ac817f63605508779ebebf612fcb7d594
 # php8
 #rm -rf feeds/packages/lang/php8
 #svn co https://github.com/openwrt/packages/trunk/lang/php8 feeds/packages/lang/php8
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.3.2/g' feeds/packages/lang/php8/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=4ffa3e44afc9c590e28dc0d2d31fc61f0139f8b335f11880a121b9f9b9f0634e/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.3.3/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=b0a996276fe21fe9ca8f993314c8bc02750f464c7b0343f056fb0894a8dfa9d1/g' feeds/packages/lang/php8/Makefile
 
 # python-docker
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.0.0/g' feeds/packages/lang/python/python-docker/Makefile
@@ -884,14 +883,14 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.8.6/g' feeds/packages/net/haproxy/Makef
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/haproxy/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=9fd034368be66880bd86a300c13dc03bc13521ee2654880dddf192785aa28d51/g' feeds/packages/net/haproxy/Makefile
 sed -i 's/BASE_TAG:=.*/BASE_TAG=v2.8.6/g' feeds/packages/net/haproxy/get-latest-patches.sh
-sed -i 's/PKG_SOURCE_URL:=.*/PKG_SOURCE_URL:=https://www.haproxy.org/download/2.8/src/g' feeds/packages/net/haproxy/Makefile
+sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.haproxy.org/download/2.8/src|g' feeds/packages/net/haproxy/Makefile
 
 # perl
 rm -rf feeds/packages/lang/perl
 cp -rf $GITHUB_WORKSPACE/general/perl feeds/packages/lang
 
 # zlib
-#rm -rf package/libs/zlib
+rm -rf package/libs/zlib
 merge_package https://github.com/openwrt/openwrt openwrt/package/libs/zlib
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.3/g' tools/zlib/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=8a9ba2898e1d0d774eca6ba5b4627a11e5588ba85c8851336eb38de4683050a7/g' tools/zlib/Makefile
@@ -1045,6 +1044,9 @@ sed -i "s|s9xxx_lede|ARMv8|g" package/custom/luci-app-amlogic/luci-app-amlogic/r
 # jq 
 rm -rf feeds/packages/utils/jq
 cp -rf $GITHUB_WORKSPACE/general/jq feeds/packages/utils
+
+# sing-box
+cp -rf $GITHUB_WORKSPACE/general/sing-box package/sing-box
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
