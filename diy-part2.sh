@@ -153,6 +153,8 @@ merge_package https://github.com/kiddin9/openwrt-packages openwrt-packages/luci-
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-smartdns package/luci-app-smartdns
 #svn co https://github.com/openwrt/luci/trunk/applications/luci-app-smartdns package/luci-app-smartdns
 merge_package https://github.com/kenzok8/openwrt-packages openwrt-packages/luci-app-smartdns
+merge_package https://github.com/kenzok8/openwrt-packages openwrt-packages/luci-app-lucky
+merge_package https://github.com/kenzok8/openwrt-packages openwrt-packages/luci-app-store
 
 #mosdns
 rm -rf feeds/packages/net/mosdns
